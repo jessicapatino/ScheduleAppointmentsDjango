@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% block container  %}
+    <table center class="striped teal lighten-4 container highlight responsive-table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Usuario</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Rol</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for roles_users in roles_users  %}
+    <tr>
+        <td> {{roles_users.pk}} </td>
+        <td> {{roles_users.user.username| title }} </td>
+       <td> {{roles_users.user.first_name | title }} </td>
+       <td> {{roles_users.user.last_name | title}} </td>
+        <td> {{roles_users.rol | upper}} </td>
+
+    </tr>
+     {% endfor %}
+    </tbody>
+    </table> 
+{% endblock container %}
